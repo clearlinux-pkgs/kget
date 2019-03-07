@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kget
-Version  : 18.12.2
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.12.2/src/kget-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/kget-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/kget-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.3/src/kget-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/kget-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/kget-18.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -21,8 +21,13 @@ Requires: kget-locales = %{version}-%{release}
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : gpgme-dev
+BuildRequires : gpgme-extras
 BuildRequires : knotifyconfig-dev
+BuildRequires : libassuan-dev
+BuildRequires : libgpg-error-dev
 BuildRequires : plasma-workspace-dev
+BuildRequires : qca-qt5-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -95,22 +100,23 @@ locales components for the kget package.
 
 
 %prep
-%setup -q -n kget-18.12.2
+%setup -q -n kget-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549884973
+export SOURCE_DATE_EPOCH=1551998073
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549884973
+export SOURCE_DATE_EPOCH=1551998073
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
 cp COPYING %{buildroot}/usr/share/package-licenses/kget/COPYING

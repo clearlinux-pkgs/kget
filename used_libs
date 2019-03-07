@@ -27,6 +27,11 @@ libQt5Network.so.5
 libQt5Widgets.so.5
 libQt5Xml.so.5
 libc.so.6
+libgcc_s.so.1
+libgpgmepp.so.6
 libkworkspace5.so.5
 libm.so.6
+libpthread.so.0
+libqca-qt5.so.2
+libqgpgme.so.7
 libstdc++.so.6

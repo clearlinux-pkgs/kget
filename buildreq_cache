@@ -1,3 +1,8 @@
-18.12.2
+18.12.3
+gpgme-dev
+gpgme-extras
 knotifyconfig-dev
+libassuan-dev
+libgpg-error-dev
 plasma-workspace-dev
+qca-qt5-dev
