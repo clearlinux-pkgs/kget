@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kget
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/kget-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/kget-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/kget-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.0/src/kget-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/kget-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/kget-19.04.0.tar.xz.sig
 Summary  : Download Manager
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -24,8 +24,6 @@ BuildRequires : buildreq-kde
 BuildRequires : gpgme-dev
 BuildRequires : gpgme-extras
 BuildRequires : knotifyconfig-dev
-BuildRequires : libassuan-dev
-BuildRequires : libgpg-error-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qca-qt5-dev
 BuildRequires : qtbase-dev mesa-dev
@@ -101,14 +99,14 @@ locales components for the kget package.
 
 
 %prep
-%setup -q -n kget-18.12.3
+%setup -q -n kget-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555331015
+export SOURCE_DATE_EPOCH=1555611369
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -116,7 +114,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555331015
+export SOURCE_DATE_EPOCH=1555611369
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
 cp COPYING %{buildroot}/usr/share/package-licenses/kget/COPYING
@@ -239,8 +237,6 @@ popd
 /usr/share/doc/HTML/fr/kget/kget3.png
 /usr/share/doc/HTML/fr/kget/kget4.png
 /usr/share/doc/HTML/fr/kget/kget5.png
-/usr/share/doc/HTML/id/kget/index.cache.bz2
-/usr/share/doc/HTML/id/kget/index.docbook
 /usr/share/doc/HTML/it/kget/index.cache.bz2
 /usr/share/doc/HTML/it/kget/index.docbook
 /usr/share/doc/HTML/nl/kget/index.cache.bz2
@@ -292,6 +288,13 @@ popd
 /usr/share/doc/HTML/ru/kget/metalink3.png
 /usr/share/doc/HTML/sr/kget/index.cache.bz2
 /usr/share/doc/HTML/sr/kget/index.docbook
+/usr/share/doc/HTML/sv/kget/index.cache.bz2
+/usr/share/doc/HTML/sv/kget/index.docbook
+/usr/share/doc/HTML/sv/kget/kget1.png
+/usr/share/doc/HTML/sv/kget/kget2.png
+/usr/share/doc/HTML/sv/kget/kget3.png
+/usr/share/doc/HTML/sv/kget/kget4.png
+/usr/share/doc/HTML/sv/kget/kget5.png
 /usr/share/doc/HTML/uk/kget/file.png
 /usr/share/doc/HTML/uk/kget/import_link.png
 /usr/share/doc/HTML/uk/kget/index.cache.bz2
