@@ -6,7 +6,7 @@
 #
 Name     : kget
 Version  : 19.04.0
-Release  : 6
+Release  : 7
 URL      : https://download.kde.org/stable/applications/19.04.0/src/kget-19.04.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/19.04.0/src/kget-19.04.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/19.04.0/src/kget-19.04.0.tar.xz.sig
@@ -24,6 +24,8 @@ BuildRequires : buildreq-kde
 BuildRequires : gpgme-dev
 BuildRequires : gpgme-extras
 BuildRequires : knotifyconfig-dev
+BuildRequires : libassuan-dev
+BuildRequires : libgpg-error-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qca-qt5-dev
 BuildRequires : qtbase-dev mesa-dev
@@ -106,15 +108,22 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555611369
+export SOURCE_DATE_EPOCH=1557012929
 mkdir -p clr-build
 pushd clr-build
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555611369
+export SOURCE_DATE_EPOCH=1557012929
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
 cp COPYING %{buildroot}/usr/share/package-licenses/kget/COPYING
