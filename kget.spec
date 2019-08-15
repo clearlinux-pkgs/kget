@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kget
-Version  : 19.04.3
-Release  : 10
-URL      : https://download.kde.org/stable/applications/19.04.3/src/kget-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/kget-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/kget-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 11
+URL      : https://download.kde.org/stable/applications/19.08.0/src/kget-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/kget-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/kget-19.08.0.tar.xz.sig
 Summary  : Download Manager
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -100,16 +100,17 @@ locales components for the kget package.
 
 
 %prep
-%setup -q -n kget-19.04.3
+%setup -q -n kget-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562869996
+export SOURCE_DATE_EPOCH=1565898978
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -123,7 +124,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562869996
+export SOURCE_DATE_EPOCH=1565898978
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
 cp COPYING %{buildroot}/usr/share/package-licenses/kget/COPYING
@@ -178,7 +179,7 @@ popd
 /usr/share/kwebkitpart/kpartplugins/kget_plug_in.rc
 /usr/share/kxmlgui5/kget/kgetui.rc
 /usr/share/metainfo/org.kde.kget.appdata.xml
-/usr/share/xdg/kget.categories
+/usr/share/qlogging-categories5/kget.categories
 
 %files dev
 %defattr(-,root,root,-)
