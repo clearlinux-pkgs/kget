@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kget
-Version  : 20.04.2
-Release  : 23
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kget-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kget-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kget-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 24
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kget-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kget-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kget-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -100,15 +100,15 @@ locales components for the kget package.
 
 
 %prep
-%setup -q -n kget-20.04.2
-cd %{_builddir}/kget-20.04.2
+%setup -q -n kget-20.08.0
+cd %{_builddir}/kget-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591982086
+export SOURCE_DATE_EPOCH=1597782353
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,17 +120,17 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591982086
+export SOURCE_DATE_EPOCH=1597782353
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
-cp %{_builddir}/kget-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kget/3860f7708aae6a8ddfe8483263b2a5f29b83c975
-cp %{_builddir}/kget-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kget/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
-cp %{_builddir}/kget-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kget/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/kget-20.04.2/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kget/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/kget-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kget/3860f7708aae6a8ddfe8483263b2a5f29b83c975
+cp %{_builddir}/kget-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kget/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kget-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kget/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kget-20.08.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kget/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -249,8 +249,24 @@ popd
 /usr/share/doc/HTML/fr/kget/kget5.png
 /usr/share/doc/HTML/id/kget/index.cache.bz2
 /usr/share/doc/HTML/id/kget/index.docbook
+/usr/share/doc/HTML/it/kget/file.png
+/usr/share/doc/HTML/it/kget/import_link.png
 /usr/share/doc/HTML/it/kget/index.cache.bz2
 /usr/share/doc/HTML/it/kget/index.docbook
+/usr/share/doc/HTML/it/kget/kget_Advanced.png
+/usr/share/doc/HTML/it/kget/kget_Appearance.png
+/usr/share/doc/HTML/it/kget/kget_Network.png
+/usr/share/doc/HTML/it/kget/kget_Web_Interface.png
+/usr/share/doc/HTML/it/kget/kget_drop_target.png
+/usr/share/doc/HTML/it/kget/kget_group.png
+/usr/share/doc/HTML/it/kget/kget_groups.png
+/usr/share/doc/HTML/it/kget/kget_plugins.png
+/usr/share/doc/HTML/it/kget/kget_transfer_hostory.png
+/usr/share/doc/HTML/it/kget/kget_verification.png
+/usr/share/doc/HTML/it/kget/metalink0.png
+/usr/share/doc/HTML/it/kget/metalink1.png
+/usr/share/doc/HTML/it/kget/metalink2.png
+/usr/share/doc/HTML/it/kget/metalink3.png
 /usr/share/doc/HTML/nl/kget/index.cache.bz2
 /usr/share/doc/HTML/nl/kget/index.docbook
 /usr/share/doc/HTML/pl/kget/index.cache.bz2
