@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kget
-Version  : 20.08.3
-Release  : 26
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/kget-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/kget-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/kget-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 27
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/kget-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/kget-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/kget-20.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -100,15 +100,15 @@ locales components for the kget package.
 
 
 %prep
-%setup -q -n kget-20.08.3
-cd %{_builddir}/kget-20.08.3
+%setup -q -n kget-20.12.0
+cd %{_builddir}/kget-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604603179
+export SOURCE_DATE_EPOCH=1607717022
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,13 +124,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604603179
+export SOURCE_DATE_EPOCH=1607717022
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
-cp %{_builddir}/kget-20.08.3/COPYING %{buildroot}/usr/share/package-licenses/kget/3860f7708aae6a8ddfe8483263b2a5f29b83c975
-cp %{_builddir}/kget-20.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kget/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
-cp %{_builddir}/kget-20.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kget/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/kget-20.08.3/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kget/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/kget-20.12.0/COPYING %{buildroot}/usr/share/package-licenses/kget/3860f7708aae6a8ddfe8483263b2a5f29b83c975
+cp %{_builddir}/kget-20.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kget/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kget-20.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kget/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kget-20.12.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kget/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
