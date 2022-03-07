@@ -6,7 +6,7 @@
 #
 Name     : kget
 Version  : 21.12.3
-Release  : 39
+Release  : 40
 URL      : https://download.kde.org/stable/release-service/21.12.3/src/kget-21.12.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kget-21.12.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kget-21.12.3.tar.xz.sig
