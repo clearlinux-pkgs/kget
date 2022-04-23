@@ -335,7 +335,6 @@ libkgetcore.so.5:_ZN4KGet11addTransferE4QUrl7QStringS1_S1_b
 libkgetcore.so.5:_ZN4KGet11addTransferE5QListI4QUrlE7QStringS3_b
 libkgetcore.so.5:_ZN4KGet11delTransferEP15TransferHandlerNS_10DeleteModeE
 libkgetcore.so.5:_ZN4KGet11loadPluginsEv
-libkgetcore.so.5:_ZN4KGet11pluginInfosEv
 libkgetcore.so.5:_ZN4KGet11renameGroupERK7QStringS2_
 libkgetcore.so.5:_ZN4KGet12TransferDataC1ERK4QUrlS3_RK7QStringbPK11QDomElement
 libkgetcore.so.5:_ZN4KGet12TransferDataC2ERK4QUrlS3_RK7QStringbPK11QDomElement
@@ -382,6 +381,7 @@ libkgetcore.so.5:_ZN4KGet4saveE7QStringb
 libkgetcore.so.5:_ZN4KGet4selfEP10MainWindow
 libkgetcore.so.5:_ZN4KGet5modelEv
 libkgetcore.so.5:_ZN4KGet7factoryEP15TransferHandler
+libkgetcore.so.5:_ZN4KGet7pluginsEv
 libkgetcore.so.5:_ZN4KGet8addGroupERK7QString
 libkgetcore.so.5:_ZN4KGet8delGroupEP20TransferGroupHandlerb
 libkgetcore.so.5:_ZN4KGet9delGroupsE5QListIP20TransferGroupHandlerEb

@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kget
-Version  : 21.12.3
-Release  : 41
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/kget-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kget-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kget-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 42
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/kget-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kget-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kget-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -27,7 +27,6 @@ BuildRequires : gpgme-dev gpgme-extras
 BuildRequires : knotifyconfig-dev
 BuildRequires : plasma-workspace-dev
 BuildRequires : qca-qt5-dev
-BuildRequires : sqlite-autoconf-dev
 
 %description
 KGet is included in the kdenetwork module.
@@ -100,15 +99,15 @@ locales components for the kget package.
 
 
 %prep
-%setup -q -n kget-21.12.3
-cd %{_builddir}/kget-21.12.3
+%setup -q -n kget-22.04.0
+cd %{_builddir}/kget-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646546267
+export SOURCE_DATE_EPOCH=1650677432
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,21 +123,18 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646546267
+export SOURCE_DATE_EPOCH=1650677432
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
-cp %{_builddir}/kget-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kget/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/kget-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/kget/3860f7708aae6a8ddfe8483263b2a5f29b83c975
-cp %{_builddir}/kget-21.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kget/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
-cp %{_builddir}/kget-21.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kget/9a1929f4700d2407c70b507b3b2aaf6226a9543c
-cp %{_builddir}/kget-21.12.3/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kget/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/kget-22.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kget/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/kget-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/kget/3860f7708aae6a8ddfe8483263b2a5f29b83c975
+cp %{_builddir}/kget-22.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kget/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kget-22.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kget/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/kget-22.04.0/cmake/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/kget/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
 %find_lang kget
-%find_lang kgetplugin
-%find_lang plasma_applet_kget
-%find_lang plasma_runner_kget
 
 %files
 %defattr(-,root,root,-)
@@ -155,8 +151,6 @@ popd
 /usr/share/config.kcfg/kget_mirrorsearchfactory.kcfg
 /usr/share/config.kcfg/kget_multisegkiofactory.kcfg
 /usr/share/dbus-1/services/org.kde.kget.service
-/usr/share/dolphinpart/kpartplugins/kget_plug_in.desktop
-/usr/share/dolphinpart/kpartplugins/kget_plug_in.rc
 /usr/share/icons/hicolor/128x128/apps/kget.png
 /usr/share/icons/hicolor/16x16/apps/kget.png
 /usr/share/icons/hicolor/22x22/apps/kget.png
@@ -164,17 +158,9 @@ popd
 /usr/share/icons/hicolor/48x48/apps/kget.png
 /usr/share/icons/hicolor/64x64/apps/kget.png
 /usr/share/kget/pics/kget_splash.png
-/usr/share/khtml/kpartplugins/kget_plug_in.desktop
-/usr/share/khtml/kpartplugins/kget_plug_in.rc
+/usr/share/kio/servicemenus/kget_download.desktop
 /usr/share/knotifications5/kget.notifyrc
-/usr/share/kservices5/ServiceMenus/kget_download.desktop
-/usr/share/kservices5/kget_checksumsearchfactory_config.desktop
-/usr/share/kservices5/kget_metalinkfactory_config.desktop
-/usr/share/kservices5/kget_mirrorsearchfactory_config.desktop
-/usr/share/kservices5/kget_multisegkiofactory_config.desktop
 /usr/share/kservicetypes5/kget_plugin.desktop
-/usr/share/kwebkitpart/kpartplugins/kget_plug_in.desktop
-/usr/share/kwebkitpart/kpartplugins/kget_plug_in.rc
 /usr/share/kxmlgui5/kget/kgetui.rc
 /usr/share/metainfo/org.kde.kget.appdata.xml
 /usr/share/qlogging-categories5/kget.categories
@@ -344,16 +330,15 @@ popd
 %defattr(-,root,root,-)
 /usr/lib64/libkgetcore.so.5
 /usr/lib64/libkgetcore.so.5.0.0
-/usr/lib64/qt5/plugins/kcm_kget_checksumsearchfactory.so
-/usr/lib64/qt5/plugins/kcm_kget_metalinkfactory.so
-/usr/lib64/qt5/plugins/kcm_kget_mirrorsearchfactory.so
-/usr/lib64/qt5/plugins/kcm_kget_multisegkiofactory.so
+/usr/lib64/qt5/plugins/kget/kcms/kcm_kget_checksumsearchfactory.so
+/usr/lib64/qt5/plugins/kget/kcms/kcm_kget_metalinkfactory.so
+/usr/lib64/qt5/plugins/kget/kcms/kcm_kget_mirrorsearchfactory.so
+/usr/lib64/qt5/plugins/kget/kcms/kcm_kget_multisegkiofactory.so
 /usr/lib64/qt5/plugins/kget/kget_checksumsearchfactory.so
 /usr/lib64/qt5/plugins/kget/kget_kio.so
 /usr/lib64/qt5/plugins/kget/kget_metalinkfactory.so
 /usr/lib64/qt5/plugins/kget/kget_mirrorsearchfactory.so
 /usr/lib64/qt5/plugins/kget/kget_multisegkiofactory.so
-/usr/lib64/qt5/plugins/kget_browser_integration.so
 
 %files license
 %defattr(0644,root,root,0755)
@@ -363,6 +348,6 @@ popd
 /usr/share/package-licenses/kget/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 /usr/share/package-licenses/kget/ff3ed70db4739b3c6747c7f624fe2bad70802987
 
-%files locales -f kget.lang -f kgetplugin.lang -f plasma_applet_kget.lang -f plasma_runner_kget.lang
+%files locales -f kget.lang
 %defattr(-,root,root,-)
 
