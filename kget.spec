@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kget
-Version  : 22.08.3
-Release  : 49
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/kget-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/kget-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/kget-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 50
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/kget-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/kget-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/kget-22.12.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0 LGPL-2.1
@@ -100,15 +100,15 @@ locales components for the kget package.
 
 
 %prep
-%setup -q -n kget-22.08.3
-cd %{_builddir}/kget-22.08.3
+%setup -q -n kget-22.12.0
+cd %{_builddir}/kget-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667885858
+export SOURCE_DATE_EPOCH=1670541247
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,7 +124,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667885858
+export SOURCE_DATE_EPOCH=1670541247
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kget
 cp %{_builddir}/kget-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kget/29fb05b49e12a380545499938c4879440bd8851e || :
@@ -301,6 +301,8 @@ popd
 /usr/share/doc/HTML/ru/kget/metalink3.png
 /usr/share/doc/HTML/sr/kget/index.cache.bz2
 /usr/share/doc/HTML/sr/kget/index.docbook
+/usr/share/doc/HTML/sr@latin/kget/index.cache.bz2
+/usr/share/doc/HTML/sr@latin/kget/index.docbook
 /usr/share/doc/HTML/sv/kget/index.cache.bz2
 /usr/share/doc/HTML/sv/kget/index.docbook
 /usr/share/doc/HTML/sv/kget/kget1.png
